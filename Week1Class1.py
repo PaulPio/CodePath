@@ -121,3 +121,45 @@ split_haycorns(quantity)
 
 quantity = 1
 split_haycorns(quantity)
+
+#Problem 11: T-I-Double Guh-ER
+def tiggerfy(s):
+    # letters Tigger steals (both cases if you want)
+    steal = "tigerTIGER"
+    
+    # build a list of characters to keep
+    kept_chars = []
+    for ch in s:
+        if ch not in steal:
+            kept_chars.append(ch)
+    
+    # join list into a string and return
+    return "".join(kept_chars)
+
+
+s = "suspicerous"
+print(tiggerfy(s))
+
+s = "Trigger"
+print(tiggerfy(s))
+
+s = "Hunny"
+print(tiggerfy(s))
+
+
+#Problem 12: Thistle Hunt
+def locate_thistles(items):
+    list = []
+    for i in range(len(items)):
+        if items[i] == "thistle":
+            list.append(i)
+    print(list)
+
+
+
+
+items = ["thistle", "stick", "carrot", "thistle", "eeyore's tail"]
+locate_thistles(items)
+
+items = ["book", "bouncy ball", "leaf", "red balloon"]
+locate_thistles(items)
