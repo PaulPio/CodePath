@@ -163,3 +163,159 @@ locate_thistles(items)
 
 items = ["book", "bouncy ball", "leaf", "red balloon"]
 locate_thistles(items)
+
+#Problem 1: Batman
+def batman():
+	print("I am vengeance. I am the night. I am Batman!")
+
+batman()
+
+#Problem 2: Mad Libs
+def madlib(verb):
+	print(f"I have one power. I never {verb}. - Batman")
+
+
+verb = "give up"
+madlib(verb)
+
+verb = "nap"
+madlib(verb)
+
+#Problem 3: Trilogy
+def trilogy(year):
+    if year == 2005:
+        print("Batman Begins")
+    elif year == 2008:
+        print("The Dark Knight")
+    elif year == 2012:
+        print("The Dark Knight Rises")
+    else:
+        print("Christopher Nolan did not release a Batman movie in 1998.")
+
+
+year = 2008
+trilogy(year)
+
+year = 1998
+trilogy(year)
+
+#Problem 4: Last
+def get_last(items):
+    if (len(items) > 0):
+    	print( items[len(items) - 1])
+    else:
+        return None
+
+
+items = ["spider man", "batman", "superman", "iron man", "wonder woman", "black adam"]
+get_last(items)
+
+items = []
+get_last(items)
+
+#Problem 5: Concatenate
+def concatenate(words):
+    letter = ""
+    if len(words) > 0:
+        for i in words:
+            letter += i
+    print(letter)    
+
+
+
+words = ["vengeance", "darkness", "batman"]
+concatenate(words)
+
+words = []
+concatenate(words)
+
+#Problem 6: Squared
+def squared(numbers):
+    for i in range(len(numbers)):
+        numbers[i] = numbers[i] ** 2 
+    print(numbers) 
+numbers = [1, 2, 3]
+squared(numbers)
+
+
+#Problem 7: NaNaNa Batman!
+
+def nanana_batman(x):
+    if x > 0 :
+        print(f"{"na" * x} batman!")
+    else:
+        print("batman!")
+
+x = 6
+nanana_batman(x)
+
+x = 0
+nanana_batman(x)
+
+#Problem 8: Find the Villain
+def find_villain(crowd, villain):
+    hiding_places = []
+    for i in range(len(crowd)):
+        if crowd[i] == villain:
+            hiding_places.append(i)
+    print(hiding_places)
+            
+crowd = ['Batman', 'The Joker', 'Alfred Pennyworth', 'Robin', 'The Joker', 'Catwoman', 'The Joker']
+villain = 'The Joker'
+find_villain(crowd, villain)
+
+
+#Problem 9: Odd
+def get_odds(nums):
+    odds = []
+    for num in nums:
+        if num % 2 != 0:
+            odds.append(num)
+    print(odds)
+
+
+nums = [1, 2, 3, 4]
+get_odds(nums)
+
+nums = [2, 4, 6, 8]
+get_odds(nums)
+
+
+#Problem 10: Up and Down
+
+def up_and_down(lst):
+    count_odd = 0
+    count_even = 0
+    for num in lst:
+        if num % 2 != 0:
+            count_odd+=1
+        else:
+            count_even +=1
+    result = count_odd - count_even
+    print(result)
+    return result
+
+
+
+lst = [1, 2, 3]
+up_and_down(lst)
+
+lst = [1, 3, 5]
+up_and_down(lst)
+
+lst = [2, 4, 10, 2]
+up_and_down(lst)
+
+
+#Problem 11: Running Sum
+def running_sum(superhero_stats):
+	pass
+
+superhero_stats = [1, 2, 3, 4]
+running_sum(superhero_stats)
+
+superhero_stats = [1, 1, 1, 1, 1]
+running_sum(superhero_stats)
+
+superhero_stats = [3, 1, 2, 10, 1]
+running_sum(superhero_stats)
