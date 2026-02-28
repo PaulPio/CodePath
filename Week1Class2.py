@@ -126,22 +126,131 @@ sum_of_digits(num)
 
 --- UNDERSTAND ---
 
-    I - Inputs 
+    I - Inputs
+    list os strings
     O - Outputs 
+    counter int variable that reperesents teh final value of tigger
     C - Constraints 
     E - Edge Cases (and examples)
+     string that were not accounted for on initial code, any other data type
 
 --- PLAN --- 
 
+a for loop that reads through the array and increase or decresases the count variable depenidng on the content of the string i
 --- IMPLEMENT --- 
 
 '''
-
 def final_value_after_operations(operations):
-	pass
+    count = 1
+    for word in operations:
+        if word is "bouncy" or word is "flouncy":
+            count += 1
+        elif word is "trouncy" or word is "pouncy":
+            count -= 1
+    print(count)
 
 operations = ["trouncy", "flouncy", "flouncy"]
 final_value_after_operations(operations)
 
 operations = ["bouncy", "bouncy", "flouncy"]
 final_value_after_operations(operations)
+
+
+#Problem 6: Acronym
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+array of strings and a string
+O - Outputs
+True or False
+C - Constraints
+E - Edge Cases (and examples)
+any data type that is not string, or any array that is not strings
+--- PLAN ---
+
+run a for loop through the array to get the first letter of each item in the string array and save them i a new string variable
+then compare if the items of the new string variable, mathes with the string s
+
+--- IMPLEMENT ---
+
+'''
+
+def is_acronym(words, s):
+    w = ""
+    for word in words:
+        w += word[0]
+    if w == s:
+        print ("True")
+        return True
+    else:
+        print ("False")
+        return False
+
+words = ["christopher", "robin", "milne"]
+s = "crm"
+is_acronym(words, s)
+
+#Problem 7: Good Things Come in Threes
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+int array
+O - Outputs
+an int with the minimun number of operations to make all elements of nums divisible by 3
+C - Constraints
+E - Edge Cases (and examples)
+non int arrays
+--- PLAN ---
+run a for loop to go thurhg the array, use and if statement checkign the remainder of a division between index i value and 3 equals 0, if not , increase the value of the i value until the remainders is 0, and 
+store the number of iterations required to achieve the result in a count variable, 
+every time the operation is made through the loop, make an if statement that checks if the current count is higher than the previous count of previous iteration, if higher change value, if less, no
+
+--- IMPLEMENT ---
+
+'''
+def make_divisible_by_3(nums):
+    count = 0
+    for i in nums:
+        if i % 3 != 0:
+            count += 1
+    print(count)
+
+nums = [1, 2, 3, 4]
+make_divisible_by_3(nums)
+
+nums = [3, 6, 9]
+make_divisible_by_3(nums)
+
+#Problem 8: Exclusive Elements
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+O - Outputs
+C - Constraints
+E - Edge Cases (and examples)
+
+--- PLAN ---
+
+--- IMPLEMENT ---
+
+'''
+def exclusive_elemts(lst1, lst2):
+	pass
+
+lst1 = ["pooh", "roo", "piglet"]
+lst2 = ["piglet", "eeyore", "owl"]
+exclusive_elemts(lst1, lst2)
+
+lst1 = ["pooh", "roo"]
+lst2 = ["piglet", "eeyore", "owl", "kanga"]
+exclusive_elemts(lst1, lst2)
+
+lst1 = ["pooh", "roo", "piglet"]
+lst2 = ["pooh", "roo", "piglet"]
+exclusive_elemts(lst1, lst2)

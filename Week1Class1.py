@@ -308,8 +308,31 @@ up_and_down(lst)
 
 
 #Problem 11: Running Sum
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+list on int
+O - Outputs
+the same list of ints with modified items
+C - Constraints
+we have to keep using the same list
+E - Edge Cases (and examples)
+empty list, not int list
+--- PLAN ---
+run a for loop and sum the value of i plus the previous value, and then update the value of i in the array
+
+
+--- IMPLEMENT ---
+
+'''
+
 def running_sum(superhero_stats):
-	pass
+    count = 0
+    for i in range(1,len(superhero_stats)):
+        superhero_stats[i] = superhero_stats[i] +superhero_stats[i-1]
+    print(superhero_stats) 
 
 superhero_stats = [1, 2, 3, 4]
 running_sum(superhero_stats)
@@ -319,3 +342,43 @@ running_sum(superhero_stats)
 
 superhero_stats = [3, 1, 2, 10, 1]
 running_sum(superhero_stats)
+
+
+#Problem 12: Shuffle
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+array with string and ints
+O - Outputs
+another array with the element swaped 
+C - Constraints
+E - Edge Cases (and examples)
+empty list, uneven lenght list
+--- PLAN ---
+we have to separate the array into two halves, and then, in a for loop, place the values of i index elemnt of the two halves into a new array
+
+--- IMPLEMENT ---
+
+'''
+
+def shuffle(cards):
+    board = []
+    midpoint = int(len(cards)/2)
+    halve1 = cards[:midpoint]
+    halve2 = cards[midpoint:]
+    for i in range(midpoint):
+        board.append(halve1[i])
+        board.append(halve2[i])
+
+    print(board)
+
+cards = ['Joker', 'Queen', 2, 3, 'Ace', 7]
+shuffle(cards)
+
+cards = [9, 2, 3, 'Joker', 'Joker', 3, 2, 9]
+shuffle(cards)
+
+cards = [10, 10, 2, 2]
+shuffle(cards)
