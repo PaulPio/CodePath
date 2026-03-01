@@ -230,18 +230,36 @@ make_divisible_by_3(nums)
 
 --- UNDERSTAND ---
 
-I - Inputs
-O - Outputs
-C - Constraints
-E - Edge Cases (and examples)
+--- UNDERSTAND ---
+I - Inputs: Two lists of items (`lst1` and `lst2`).
+O - Outputs: A single new list containing items that appear in only ONE of the original lists (exclusive elements).
+C - Constraints: The output must be a list. Sets do not maintain order, so the final list order doesn't matter.
+E - Edge Cases: 
+    - Empty lists (should return the contents of the non-empty list).
+    - Identical lists (should return an empty list `[]`).
+    - Lists with duplicate items inside them (Sets will automatically clean these up!).
+
+--- MATCH ---
+This problem perfectly matches the mathematical concept of "Symmetric Difference." 
+The best data structure for this in Python is a `Set`, which has a built-in operator (`^`)
+ specifically designed to find the symmetric difference between two groups of data instantly.
 
 --- PLAN ---
-
---- IMPLEMENT ---
+1. Convert `lst1` into a set.
+2. Convert `lst2` into a set.
+3. Find the symmetric difference between the two sets using the `^` operator (or the `.symmetric_difference()` method).
+4. Convert the resulting set back into a list.
+5. Return the final list.
 
 '''
 def exclusive_elemts(lst1, lst2):
-	pass
+    lst1 = set(lst1)
+    lst2 = set(lst2)
+    exclusive_set= lst1.symmetric_difference(lst2)
+
+    exclusive_set = list(exclusive_set)
+    print(exclusive_set)
+    
 
 lst1 = ["pooh", "roo", "piglet"]
 lst2 = ["piglet", "eeyore", "owl"]
@@ -254,3 +272,36 @@ exclusive_elemts(lst1, lst2)
 lst1 = ["pooh", "roo", "piglet"]
 lst2 = ["pooh", "roo", "piglet"]
 exclusive_elemts(lst1, lst2)
+
+
+
+#Problem 9: Merge Strings Alternately
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+O - Outputs
+C - Constraints
+E - Edge Cases (and examples)
+
+--- PLAN ---
+
+--- IMPLEMENT ---
+
+'''
+
+def merge_alternately(word1, word2):
+    pass
+
+word1 = "wol"
+word2 = "oze"
+merge_alternately(word1, word2)
+
+word1 = "hfa"
+word2 = "eflump"
+merge_alternately(word1, word2)
+
+word1 = "eyre"
+word2 = "eo"
+merge_alternately(word1, word2)
