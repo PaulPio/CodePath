@@ -1,105 +1,161 @@
-#Problem 1: Festival Lineup
-def lineup(artists, set_times):
-    pass
+#Problem 1: Most Endangered Species
+''' UPI TEMPLATE
 
-artists1 = ["Kendrick Lamar", "Chappell Roan", "Mitski", "Rosalia"]
-set_times1 = ["9:30 PM", "5:00 PM", "2:00 PM", "7:30 PM"]
+--- UNDERSTAND ---
 
-artists2 = []
-set_times2 = []
+I - Inputs
+An arra of dictionaries
+O - Outputs
+String, value of the lowest population dict
+C - Constraints
+empty array, any other data type that is not dictionary
+E - Edge Cases (and examples)
 
-print(lineup(artists1, set_times1))
-print(lineup(artists2, set_times2))
+--- PLAN ---
+For loop that goes through the array, key, value, 
+create a counter called minimum = -100
+
+--- IMPLEMENT ---
+
+'''
+def most_endangered(species_list):
+    minimum = float("inf")
+    endangered_species_name = ""
+    for specie in species_list:
+        if specie['population'] <= minimum:
+            minimum = specie['population']
+            endangered_species_name = specie['name']
+    return endangered_species_name 
 
 
-#Problem 1: Space Crew
-def space_crew(crew, position):
-    roles = {}
-    for i in range(len(crew)):
-        roles[crew[i]] = position[i]
-    return roles
-exp70_crew = ["Andreas Mogensen", "Jasmin Moghbeli", "Satoshi Furukawa", "Loral O'Hara", "Konstantin Borisov"]
-exp70_positions = ["Commander", "Flight Engineer", "Flight Engineer", " Flight Engineer", "Flight Engineer"] 
-
-ax3_crew = ["Michael Lopez-Alegria", "Walter Villadei", "Alper Gezeravci", "Marcus Wandt"]
-ax3_positions = ["Commander", "Mission Pilot", "Mission Specialist", "Mission Specialist"]
-
-print(space_crew(exp70_crew, exp70_positions))
-print(space_crew(ax3_crew, ax3_positions))
-
-
-#Problem 2: Space Encyclopedia
-def planet_lookup(planet_name):
-    if planetary_info.get(planet_name) == None:
-        return "Sorry, I have no data on that planet."
-    else:
-        return "Planet " + str(planet_name) + " has an orbital period of " + str(planetary_info.get(planet_name).get("Orbital Period")) + " Earth days and has " + str(planetary_info.get(planet_name).get("Moons")) + " moons."
-
-planetary_info = {
-    "Mercury": {        
-        "Moons": 0,
-        "Orbital Period": 88
+species_list = [
+    {"name": "Amur Leopard",
+     "habitat": "Temperate forests",
+     "population": 84
     },
-    "Earth": {
-        "Moons": 1,
-        "Orbital Period": 365.25
+    {"name": "Javan Rhino",
+     "habitat": "Tropical forests",
+     "population": 72
     },
-    "Mars": {
-        "Moons": 2,
-        "Orbital Period": 687
-    },
-    "Jupiter": {
-        "Moons": 79,
-        "Orbital Period": 10592
+    {"name": "Vaquita",
+     "habitat": "Marine",
+     "population": 10
     }
-}
+]
 
-print(planet_lookup("Jupiter"))
-print(planet_lookup("Pluto"))
-
-
-#Problem 3: Breathing Room
-
-def check_oxygen_levels(oxygen_levels, min_val, max_val):
-    outside = []
-    for i in oxygen_levels:
-        if oxygen_levels[i] < min_val or oxygen_levels[i] > max_val:
-            outside.append(i)
-    return outside
-
-oxygen_levels = {
-    "Command Module": 21,
-    "Habitation Module": 20,
-    "Laboratory Module": 19,
-    "Airlock": 22,
-    "Storage Bay": 18
-}
-
-min_val = 19
-max_val = 22
-
-print(check_oxygen_levels(oxygen_levels, min_val, max_val))
+print(most_endangered(species_list))
 
 
-#Problem 4: Experiment Analysis
-def data_difference(experiment1, experiment2):
-    # 1. Initialize an empty dictionary to store the differences
-    diff_dict = {}
+#Problem 2: Identifying Endangered Species
 
-    # 2. Loop through each key-value pair in the first experiment
-    for key, value in experiment1.items():
-        
-        # 3. Check if the key exists in experiment2 AND has the same value
-        # We only want to keep the data if the exact pair is NOT in experiment2
-        if key not in experiment2 or experiment2[key] != value:
-            
-            # 4. Add the unique key-value pair to our new dictionary
-            diff_dict[key] = value
+''' UPI TEMPLATE
 
-    # 5. Return the final result
-    return diff_dict
+--- UNDERSTAND ---
 
-exp1_data = {'temperature': 22, 'pressure': 101.3, 'humidity': 45}
-exp2_data = {'temperature': 18, 'pressure': 101.3, 'radiation': 0.5}
+I - Inputs
+a string 
+O - Outputs
+the number of endangered species
+C - Constraints
 
-print(data_difference(exp1_data, exp2_data))
+E - Edge Cases (and examples)
+empty string, any other data type that is not a string, or an array
+
+--- PLAN ---
+we have to create one  set to store endangered_species
+one int variable to counter the aparitions of endangered_species
+a for loop that checks if an item in the set endangered_species is on the string of observed_species,
+if it is add one to the counter 
+return the counter
+--- IMPLEMENT ---
+
+'''
+
+def count_endangered_species(endangered_species, observed_species):
+    endangered_species_set = set(endangered_species)
+    counter = 0
+    endangered_species_set.intersection
+    for species in observed_species:
+        if species in endangered_species_set: #in is to check if the item is on the set
+            counter +=1
+    return counter
+
+
+endangered_species1 = "aA"
+observed_species1 = "aAAbbbb"
+
+endangered_species2 = "z"
+observed_species2 = "ZZ"
+
+print(count_endangered_species(endangered_species1, observed_species1)) 
+print(count_endangered_species(endangered_species2, observed_species2))  
+
+#Problem 3: Navigating the Research Station
+
+''' UPI TEMPLATE
+
+--- UNDERSTAND ---
+
+I - Inputs
+2 strings, one with the layout of chars , and another one with the chars to look for
+O - Outputs
+is a number of times that the for loop moves to get the index of the string
+C - Constraints
+do the observations in one movement
+E - Edge Cases (and examples)
+The index moves from 0 to 2 to observe 'c', then to 1 for
+'b', then to 0 again for 'a'.
+
+empty string, any other data type that is no string
+
+--- PLAN ---
+create a count variable to sum the indexes of the obsetations
+create a dictionary using a for loop to store the chars and their posiiton in the layout
+key = char
+value = index value
+
+for loop using enumerate, 2 values to search for in the for loop , i and j
+sum the counter of indexes every
+return counter
+--- IMPLEMENT ---
+
+'''
+def navigate_research_station(station_layout, observations):
+    positions = { char : idx for idx, char in enumerate(station_layout)}
+    total_time = 0
+    current_position = 0
+    #target_position = 0
+    #print(positions)
+    for observation in observations:
+        target_position = positions[observation]
+        total_time += abs(current_position - target_position )
+        current_position = target_position
+
+
+    return total_time
+
+
+
+station_layout1 = "pqrstuvwxyzabcdefghijklmno"
+observations1 = "wildlife"
+
+station_layout2 = "abcdefghijklmnopqrstuvwxyz"
+observations2 = "cba"
+
+print(navigate_research_station(station_layout1, observations1))  
+print(navigate_research_station(station_layout2, observations2))
+
+#Problem 4: Prioritizing Endangered Species Observations
+
+def prioritize_observations(observed_species, priority_species):
+  pass
+
+
+observed_species1 = ["🐯", "🦁", "🦌", "🦁", "🐯", "🐘", "🐍", "🦑", "🐻", "🐯", "🐼"]
+priority_species1 = ["🐯", "🦌", "🐘", "🦁"]  
+
+observed_species2 = ["bluejay", "sparrow", "cardinal", "robin", "crow"]
+priority_species2 = ["cardinal", "sparrow", "bluejay"]
+
+print(prioritize_observations(observed_species1, priority_species1))
+print(prioritize_observations(observed_species2, priority_species2)) 
