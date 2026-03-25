@@ -190,3 +190,17 @@ cj = Node("C.J.")
 isabelle.next = saharah
 saharah.next = cj
 print_list(isabelle)
+
+#Problem Set Version 2
+#Problem 1: Instantiate an Instance of Player
+class Player():
+    def __init__(self, character, kart):
+        self.character = character
+        self.kart = kart
+        self.items = []
+
+player_one = Player("Yoshi", "Super Blooper")
+
+print(player_one.character)
+print(player_one.kart)
+print(player_one.items)
